@@ -1,0 +1,46 @@
+Global altera o valor da variavel total quando chamada aquela função
+message = 'global'
+
+def func ():
+    message = 'func'
+    def local():
+        global message
+        message = 'local'
+    print(message)   #2.1# A variavel antes de chamar a global
+    local()         # Chamando a função q muda a variavel so no global scope
+    print (message) #2.2# a variavel depois de alterna-la na função LOCAL
+    
+print(message) #1#
+func() #2#
+print(message) #3# a variavel global mudada
+
+                 OUTPUT
+
+global #1#
+func #2.1#
+func #2.2#
+local #3#
+
+nonlocal altera somente o valor da variavel dentro daquela função quando a variavel for chamada denovo fora da função ela retornara ao primeiro valor dado a ela
+    message = 'global'
+
+    def func ():
+        message = 'func'
+        def local():
+            nonlocal message
+            message = 'local'
+        print(message)
+        local()
+        print (message)
+        
+    print(message)
+    func()
+    print(message)
+
+
+                    OUTPUT
+
+global   #VARIAVEL GLOBAL#
+func    #VARIAVEL DENTRO DA FUNÇÃO#
+local   #VARIAVEL MUDADA DENTRO DA SEGUNDA FUNÇÃO#
+global  #VARIAVEL VOLTA AO GLOBAL POR CAUSA DO NONLOCAL#

@@ -1,0 +1,26 @@
+__call__
+    ta chamando uma segunda função(def) junto com a inicial __init__
+        assim quando voce chamar no terminal so pela Classe ele vai automaticamente chamar a __call__ depois da __init__
+            >>> from testes import Names
+            >>> t1=Names()
+            >>> t1('lucas')             ### AQUI FOI POSSIVEL CHAMAR###
+            5
+            >>> t1('caco')
+            4
+            >>> t1.lista
+            {'lucas': 5, 'caco': 4}
+        sem o __call__ com outro nome na função voce teria que chamar a Classe (q ja vem com o __init__).a função que voce quer daquela Classe
+            >>> from testes import Names
+            >>> t1=Names()
+            >>> t1('lucas')             ###AQUI NAO FOI POSSIVEL CHAMAR###
+            Traceback (most recent call last):
+            File "<stdin>", line 1, in <module>
+            TypeError: 'Names' object is not callable
+            >>> t1.lista
+            {}
+            >>> t1.addName()            ###TIVEMOS QUE CHAMAR PELA FUNÇÃO SECUNDARIA###
+            Traceback (most recent call last):
+            File "<stdin>", line 1, in <module>
+            TypeError: addName() missing 1 required positional argument: 'nome'
+            >>> t1.addName('lucas')     ###CHAMANDO PELA FUNÇÃO SECUNDARIA###
+            5 
